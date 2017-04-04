@@ -1,181 +1,29 @@
-.content {
-    height: 89%;
-}
-
-.container {
-    height: 95%;
-}
-
-/*.list-group-item {*/
-    /*position: relative;*/
-    /*display: block;*/
-    /*padding: 16px 16px;*/
-    /*margin-top: 16px;*/
-    /*margin-bottom: 16px;*/
-    /*background-color: #f9f9f9;*/
-    /*border: 1px solid #2c3e50;*/
-    /*border-radius: 4px;*/
-/*}*/
-
-.react-bs-table {
-    border: 0;
-}
-
-.Collapsible__trigger {
-    font-size: 1.17em;
-    font-weight: bold;
-    cursor: pointer; cursor: hand;
-}
-
-.custom-well {
-    border: 1px solid #2c3e50;
-    background-color: #f9f9f9;
-    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
-}
-
-.sort-column {
-    background-color: #ecf0f1;
-}
-
-.main {
-    margin-top: 25px;
-}
-
-.main-login {
-    background-color: #fff;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
-}
-
-.main-center {
-    margin: 0 auto;
-    max-width: 408px;
-}
-
-.login-register-hr {
-    max-width: 408px;
-}
-
-.margin-top {
-    margin-top: 10px;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.list-inline>.issue-info-li {
-    padding-right: 80px;
-}
-
-.issue-panel-body {
-    padding: 5px 25px;
-}
-
-.margin-bottom-button {
-    margin-bottom: 21px;
-}
-
-.fa-right-padding {
-    padding-right: 10px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-.sidebar-profile-button-left {
-    margin-left: 20px;
-}
-
-.sidebar-profile-button-right {
-    margin-right: 20px;
-}
-
-.half-width {
-    width: 50%;
-}
-
-.breadcrumbs-style {
-    font-size: small;
-    background-color: transparent;
-}
-
-.breadcrumb > li + li:before {
-    color: #ccc;
-    content: "› ";
-    padding: 0 5px;
-}
-
-.uneven-padding-fix {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-.white-font {
-    color: white;
-}
-
-.list-divider {
-    margin: 0;
-}
-
-.char-count-div {
-    font-size: smaller;
-    margin-top: 10px;
-}
-
-.custom-page-header {
-    margin: 0 0 21px
-}
-
-.btn-group-margin-right {
-    margin-right: 5px;
-}
-
-.svg.radial-progress {
+.svg .radial-progress {
     position: relative;
     display: inline-block;
 }
 
-svg {
-    transform: rotate(270deg);
-}
+/*TIMER*/
 
 circle {
-    stroke-width: 2em;
+    stroke-width: 4em;
     fill: transparent;
-    transform: rotate(0.1deg); // to fix Firefox
+    /*transform: rotate(270deg);*/
 }
 
-.radial-progress-background {
-    stroke: orange;
+.radial-progress-border {
+    /*stroke: #e53c37;*/
+    stroke-width: 4.1em;
 }
+
+/*.radial-progress-background {*/
+    /*stroke: #eb6864;*/
+/*}*/
 
 .radial-progress-cover {
     stroke: #DEDEDE;
-    stroke-width: 2.01em;
-    border: 12px solid red;
 }
 
 .radial-progress-center {
     fill: #CCC;
-}
-
-.radial-fill {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.center {
-    margin: auto;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router";
 import { LinkContainer } from "react-router-bootstrap";
 import { Button, MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
 
@@ -11,20 +11,22 @@ export default class CustomNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar style={{borderRadius: 0}}>
+            <Navbar inverse style={{borderRadius: 0}}>
                 <Navbar.Header>
-                    <NavLink to="/">
-                        <Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to="/">
                             Pomodoro Timer
-                        </Navbar.Brand>
-                    </NavLink>
+                        </Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
-                <Nav>
-                    <NavItem>
-                        <NavLink to="/tasks">Tasks</NavLink>
-                    </NavItem>
-                </Nav>
+                <Navbar.Collapse>
+                    <Nav>
+                        <LinkContainer to="/tasks">
+                            <NavItem>Tasks</NavItem>
+                        </LinkContainer>
+                    </Nav>
+                </Navbar.Collapse>
             </Navbar>
         );
     }
