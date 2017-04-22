@@ -8,9 +8,9 @@ export default class TasksPage extends React.Component {
 
     render() {
         return (
-            <div>
+            <section id="tasks">
                 oh hi.
-            </div>
+            </section>
         );
     }
 }

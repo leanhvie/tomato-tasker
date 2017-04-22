@@ -1,24 +1,23 @@
+.navbar {
+    z-index: 9001;
+}
+
+/*TIMER*/
+
 .svg .radial-progress {
     position: relative;
     display: inline-block;
 }
 
-/*TIMER*/
-
 circle {
     stroke-width: 4em;
     fill: transparent;
-    /*transform: rotate(270deg);*/
+    transition: stroke-dashoffset 0.5s ease-in-out;
 }
 
 .radial-progress-border {
-    /*stroke: #e53c37;*/
     stroke-width: 4.1em;
 }
-
-/*.radial-progress-background {*/
-    /*stroke: #eb6864;*/
-/*}*/
 
 .radial-progress-cover {
     stroke: #DEDEDE;
@@ -26,4 +25,8 @@ circle {
 
 .radial-progress-center {
     fill: #CCC;
+}
+
+.timer-control > button {
+    margin: 0 10px;
 }
