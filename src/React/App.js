@@ -1,5 +1,5 @@
 import React from "react";
-import CustomNavbar from "./Layout/CustomNavbar";
+import Navbar from "./Layout/Navbar";
 import Content from "./Layout/Content";
 
 export default class App extends React.Component {
@@ -12,7 +12,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="layout">
-                <CustomNavbar/>
+                <Navbar/>
                 <Content/>
             </div>
         );

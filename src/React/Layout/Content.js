@@ -14,7 +14,7 @@ export default class Content extends React.Component {
 
     render() {
         return (
-            <div>
+            <div id="content">
                 <TimerSection/>
                 <TasksSection/>
             </div>

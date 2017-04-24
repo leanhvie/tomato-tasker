@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Row } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import Timer from "../Components/Timer"
 

@@ -1,7 +1,7 @@
 import React from "react";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+import { Nav, Navbar as BSNavbar, NavItem } from "react-bootstrap";
 
-export default class CustomNavbar extends React.Component {
+export default class Navbar extends React.Component {
 
     showTimer() {
         let timerSection = document.querySelector("#timer");
@@ -19,21 +19,21 @@ export default class CustomNavbar extends React.Component {
 
     render() {
         return (
-            <Navbar inverse style={{borderRadius: 0}}>
-                <Navbar.Header>
-                    <Navbar.Brand>
+            <BSNavbar inverse style={{borderRadius: 0}}>
+                <BSNavbar.Header>
+                    <BSNavbar.Brand>
                         <a onClick={() => this.showTimer()}>
-                            Pomodoro Timer
+                            Tomato Tasker
                         </a>
-                    </Navbar.Brand>
-                    <Navbar.Toggle />
-                </Navbar.Header>
-                <Navbar.Collapse>
+                    </BSNavbar.Brand>
+                    <BSNavbar.Toggle />
+                </BSNavbar.Header>
+                <BSNavbar.Collapse>
                     <Nav>
                         <NavItem onClick={() => this.showTasks()}>Tasks</NavItem>
                     </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+                </BSNavbar.Collapse>
+            </BSNavbar>
         );
     }
 }
