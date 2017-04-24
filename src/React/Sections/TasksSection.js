@@ -9,7 +9,9 @@ export default class TasksPage extends React.Component {
     render() {
         return (
             <section id="tasks">
-                oh hi.
+                <div className="text-center">
+                    oh hi.
+                </div>
             </section>
         );
     }

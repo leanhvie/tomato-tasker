@@ -30,3 +30,193 @@ circle {
 .timer-control > button {
     margin: 0 10px;
 }
+
+#timer-button {
+    transition: all 0.5s ease-in-out;
+}
+
+#timer-button-icon {
+    transition: all 0.5s ease-in-out;
+}
+
+/*section {*/
+    /*visibility: hidden;*/
+/*}*/
+
+/*.current-section {*/
+    /*visibility: visible;*/
+/*}*/
+
+.move-from-top {
+    -webkit-animation: moveFromTop 0.5s ease-out;
+    -moz-animation: moveFromTop 0.5s ease-out;
+    -ms-animation: moveFromTop 0.5s ease-out;
+    -o-animation: moveFromTop 0.5s ease-out;
+    animation: moveFromTop 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.move-to-bottom {
+    -webkit-animation: moveToBottom 0.5s ease-in;
+    -moz-animation: moveToBottom 0.5s ease-in;
+    -ms-animation: moveToBottom 0.5s ease-in;
+    -o-animation: moveToBottom 0.5s ease-in;
+    animation: moveToBottom 0.5s ease-in;
+    animation-fill-mode: forwards;
+}
+
+.move-from-bottom {
+    -webkit-animation: moveFromBottom 0.5s ease-out;
+    -moz-animation: moveFromBottom 0.5s ease-out;
+    -ms-animation: moveFromBottom 0.5s ease-out;
+    -o-animation: moveFromBottom 0.5s ease-out;
+    animation: moveFromBottom 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+.move-to-top {
+    -webkit-animation: moveToTop 0.5s ease-in;
+    -moz-animation: moveToTop 0.5s ease-in;
+    -ms-animation: moveToTop 0.5s ease-in;
+    -o-animation: moveToTop 0.5s ease-in;
+    animation: moveToTop 0.5s ease-in;
+    animation-fill-mode: forwards;
+}
+
+
+
+@-webkit-keyframes moveFromTop {
+    from {
+        -webkit-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@-moz-keyframes moveFromTop {
+    from {
+        -moz-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@-ms-keyframes moveFromTop {
+    from {
+        -ms-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@-o-keyframes moveFromTop {
+    from {
+        -o-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@keyframes moveFromTop {
+    from {
+        transform: translateY(-110%);
+    }
+}
+
+
+
+@-webkit-keyframes moveToBottom {
+    from {}
+    to {
+        -webkit-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-moz-keyframes moveToBottom {
+    from {}
+    to {
+        -moz-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-ms-keyframes moveToBottom {
+    from {}
+    to {
+        -ms-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-o-keyframes moveToBottom {
+    from {}
+    to {
+        -o-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@keyframes moveToBottom {
+    from {}
+    to {
+        transform: translateY(110%);
+    }
+}
+
+
+
+@-webkit-keyframes moveFromBottom {
+    from {
+        -webkit-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-moz-keyframes moveFromBottom {
+    from {
+        -moz-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-ms-keyframes moveFromBottom {
+    from {
+        -ms-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@-o-keyframes moveFromBottom {
+    from {
+        -o-transform: translateY(110%);
+        transform: translateY(110%);
+    }
+}
+@keyframes moveFromBottom {
+    from {
+        transform: translateY(110%);
+    }
+}
+
+
+
+@-webkit-keyframes moveToTop {
+    from {}
+    to {
+        -webkit-transform: translateY(-1000%);
+        transform: translateY(-110%);
+    }
+}
+@-moz-keyframes moveToTop {
+    from {}
+    to {
+        -moz-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@-ms-keyframes moveToTop {
+    from {}
+    to {
+        -ms-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@-o-keyframes moveToTop {
+    from {}
+    to {
+        -o-transform: translateY(-110%);
+        transform: translateY(-110%);
+    }
+}
+@keyframes moveToTop {
+    from {}
+    to {
+        transform: translateY(-110%);
+    }
+}

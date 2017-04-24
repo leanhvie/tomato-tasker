@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Grid } from "react-bootstrap";
-
 import TimerSection from "./Sections/TimerSection";
 import TasksSection from "./Sections/TasksSection";
 
@@ -15,14 +13,11 @@ export default class Content extends React.Component {
     }
 
     render() {
-
-
-
         return (
-            <Grid>
+            <div>
                 <TimerSection/>
                 <TasksSection/>
-            </Grid>
+            </div>
         );
     }
 }

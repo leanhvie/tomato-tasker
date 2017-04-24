@@ -64,6 +64,10 @@ export default class Timer extends React.Component {
             if (initialDuration < elapsed) {
                 clearTimeout(that.state.timeoutRadial);
                 if(that.state.onBreak) {
+                    let timerButton = document.querySelector("#timer-button");
+                    let timerButtonIcon = document.querySelector("#timer-button-icon");
+                    timerButton.className = "btn btn-lg btn-success";
+                    timerButtonIcon.className = "fa fa-play";
                     that.setState({
                         initialDuration: 5,
                         duration: 5,
@@ -127,6 +131,10 @@ export default class Timer extends React.Component {
 
     startTimer() {
         if(!this.state.running) {
+            let timerButton = document.querySelector("#timer-button");
+            let timerButtonIcon = document.querySelector("#timer-button-icon");
+            timerButton.className = "btn btn-lg btn-danger";
+            timerButtonIcon.className = "fa fa-pause";
             this.setState({
                 running: true,
                 paused: false
@@ -134,6 +142,20 @@ export default class Timer extends React.Component {
                 this.fillProgress();
                 this.renderTimerText();
             });
+        } else if(!this.state.paused) {
+            let timerButton = document.querySelector("#timer-button");
+            let timerButtonIcon = document.querySelector("#timer-button-icon");
+            timerButton.className = "btn btn-lg btn-success";
+            timerButtonIcon.className = "fa fa-play";
+            const remaining = this.state.remaining;
+            this.setState({
+                duration: remaining,
+                running: false,
+                paused: true
+            }, () => {
+                clearTimeout(this.state.timeoutRadial);
+                clearTimeout(this.state.timeoutText);
+            })
         }
     }
 
@@ -166,7 +188,7 @@ export default class Timer extends React.Component {
                         <circle className="radial-progress-cover" r="16em" cx={cx} cy={cy}></circle>
                         <circle className="radial-progress-center" r="16em" cx={cx} cy={cy}></circle>
                     </g>
-                    <text x="50%" y="55%" textAnchor="middle" fontSize="8em"></text>
+                    <text x="50%" y="50%" textAnchor="middle" fontSize="4em"></text>
                 </svg>
             </div>
         );

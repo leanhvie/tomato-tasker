@@ -1,12 +1,20 @@
 import React from "react";
-import { Link } from "react-router";
-import { LinkContainer } from "react-router-bootstrap";
-import { Button, MenuItem, Nav, Navbar, NavDropdown, NavItem } from "react-bootstrap";
+import { Nav, Navbar, NavItem } from "react-bootstrap";
 
 export default class CustomNavbar extends React.Component {
 
-    handleThemeSelect(event) {
-        document.getElementById("pagestyle").setAttribute("href", "resources/css/themes/"+event);
+    showTimer() {
+        let timerSection = document.querySelector("#timer");
+        let tasksSection = document.querySelector("#tasks");
+        timerSection.className = "move-from-top";
+        tasksSection.className = "move-to-bottom";
+    }
+
+    showTasks() {
+        let timerSection = document.querySelector("#timer");
+        let tasksSection = document.querySelector("#tasks");
+        timerSection.className = "move-to-top";
+        tasksSection.className = "move-from-bottom";
     }
 
     render() {
@@ -14,17 +22,15 @@ export default class CustomNavbar extends React.Component {
             <Navbar inverse style={{borderRadius: 0}}>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <Link to="/">
+                        <a onClick={() => this.showTimer()}>
                             Pomodoro Timer
-                        </Link>
+                        </a>
                     </Navbar.Brand>
                     <Navbar.Toggle />
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <LinkContainer to="/tasks">
-                            <NavItem>Tasks</NavItem>
-                        </LinkContainer>
+                        <NavItem onClick={() => this.showTasks()}>Tasks</NavItem>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

@@ -16,21 +16,14 @@ export default class TimerPage extends React.Component {
     render() {
         return (
             <section id="timer">
-                <Row>
-                    <div className="text-center">
-                        <Timer setTime={this.state.time} ref="timer"/>
-                    </div>
-                </Row>
-                <Row>
-                    <div className="timer-control text-center">
-                        <Button bsStyle="success" bsSize="large" onClick={() => this.refs.timer.startTimer()}>
-                            <i className="fa fa-play" aria-hidden="true"></i>
-                        </Button>
-                        <Button bsStyle="danger" bsSize="large" onClick={() => this.refs.timer.pauseTimer()}>
-                            <i className="fa fa-pause" aria-hidden="true"></i>
-                        </Button>
-                    </div>
-                </Row>
+                <div className="text-center">
+                    <Timer setTime={this.state.time} ref="timer"/>
+                </div>
+                <div className="timer-control text-center">
+                    <Button id="timer-button" bsStyle="success" bsSize="large" onClick={() => this.refs.timer.startTimer()}>
+                        <i id="timer-button-icon" className="fa fa-play" aria-hidden="true"></i>
+                    </Button>
+                </div>
             </section>
         );
     }
