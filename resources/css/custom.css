@@ -39,13 +39,7 @@ circle {
     transition: all 0.5s ease-in-out;
 }
 
-/*section {*/
-    /*visibility: hidden;*/
-/*}*/
 
-/*.current-section {*/
-    /*visibility: visible;*/
-/*}*/
 
 .move-from-top {
     -webkit-animation: moveFromTop 0.5s ease-out;
@@ -189,7 +183,7 @@ circle {
 @-webkit-keyframes moveToTop {
     from {}
     to {
-        -webkit-transform: translateY(-1000%);
+        -webkit-transform: translateY(-100%);
         transform: translateY(-110%);
     }
 }

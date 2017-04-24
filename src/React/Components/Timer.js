@@ -188,7 +188,7 @@ export default class Timer extends React.Component {
                         <circle className="radial-progress-cover" r="16em" cx={cx} cy={cy}></circle>
                         <circle className="radial-progress-center" r="16em" cx={cx} cy={cy}></circle>
                     </g>
-                    <text x="50%" y="50%" textAnchor="middle" fontSize="4em"></text>
+                    <text x="50%" y="50%" textAnchor="middle" fontSize="4em">oh hi.</text>
                 </svg>
             </div>
         );
