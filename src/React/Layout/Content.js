@@ -1,7 +1,7 @@
 import React from "react";
 
-import TimerSection from "./Sections/TimerSection";
-import TasksSection from "./Sections/TasksSection";
+import TimerSection from "../Sections/TimerSection";
+import TasksSection from "../Sections/TasksSection";
 
 export default class Content extends React.Component {
 
