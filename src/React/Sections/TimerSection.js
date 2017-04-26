@@ -15,15 +15,11 @@ export default class TimerPage extends React.Component {
 
     render() {
         return (
-            <section id="timer">
-                <div className="text-center">
-                    <Timer setTime={this.state.time} ref="timer"/>
-                </div>
-                <div className="timer-control text-center">
-                    <Button id="timer-button" bsStyle="success" bsSize="large" onClick={() => this.refs.timer.startTimer()}>
-                        <i id="timer-button-icon" className="fa fa-play" aria-hidden="true"></i>
-                    </Button>
-                </div>
+            <section id="timer-section" className="">
+                <Timer setTime={this.state.time} ref="timer"/>
+                <Button id="timer-button" bsStyle="success" bsSize="large" onClick={() => this.refs.timer.startTimer()}>
+                    <i id="timer-button-icon" className="fa fa-play" aria-hidden="true"></i>
+                </Button>
             </section>
         );
     }

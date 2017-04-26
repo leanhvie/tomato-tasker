@@ -1,22 +1,66 @@
+html, body, #app, #display {
+    height: 100%
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+}
+
 .navbar {
     z-index: 9001;
+    padding-left: 25px;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgb(15, 120, 100);
+}
+
+#main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    border-right: 1px solid #efdecd;
+    background-color: bisque;
+    transition: all 0.5s ease-in-out;
+}
+
+.showSidebar {
+    flex-grow: 1;
+}
+
+#content {
+    margin-bottom: 21px;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
 }
 
 /*TIMER*/
 
-.svg .radial-progress {
-    position: relative;
-    display: inline-block;
+#timer-section {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#timer {
+    align-self: center;
+}
+
+svg {
+    width: 48em;
 }
 
 circle {
-    stroke-width: 4em;
+    stroke-width: 10;
     fill: transparent;
     transition: stroke-dashoffset 0.5s ease-in-out;
 }
 
 .radial-progress-border {
-    stroke-width: 4.1em;
+    stroke-width: 10;
 }
 
 .radial-progress-cover {
@@ -27,19 +71,61 @@ circle {
     fill: #CCC;
 }
 
-.timer-control > button {
-    margin: 0 10px;
-}
-
 #timer-button {
+    align-self: center;
+    width: 16em;
     transition: all 0.5s ease-in-out;
 }
 
-#timer-button-icon {
-    transition: all 0.5s ease-in-out;
+#footer {
+    height: 8%;
+    border-top: 1px solid #d3d3d3;
+    background-color: #dededf;
 }
 
+#footer > .container {
+    padding: 15px;
+}
 
+@media (max-width: 1200px) {
+
+    .showSidebar {
+        flex-grow: 8;
+    }
+
+}
+
+@media (max-width: 1000px) {
+
+    svg {
+        width: 30em;
+    }
+
+    .showSidebar {
+        flex-grow: 6;
+    }
+
+    #timer-button {
+        width: 20em;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .showSidebar {
+        flex-grow: 4;
+    }
+
+    svg {
+        width: 16em;
+    }
+
+    #timer-button {
+        width: 11em;
+    }
+
+}
 
 .move-from-top {
     -webkit-animation: moveFromTop 0.5s ease-out;

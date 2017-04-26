@@ -1,17 +1,19 @@
 import React from "react";
 import Navbar from "./Layout/Navbar";
 import Content from "./Layout/Content";
+import Footer from "./Layout/Footer";
 
 export default class App extends React.Component {
 
     render() {
-
-        console.log(window.location.href);
-
         return (
-            <div>
+            <div id="display">
                 <Navbar/>
-                <Content/>
+                <div id="main">
+                    <div id="sidebar"></div>
+                    <Content/>
+                </div>
+                <Footer/>
             </div>
         );
     }

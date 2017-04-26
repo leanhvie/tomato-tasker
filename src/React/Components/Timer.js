@@ -31,17 +31,16 @@ export default class Timer extends React.Component {
         this.fillProgress = this.fillProgress.bind(this);
         this.renderTimerText = this.renderTimerText.bind(this);
         this.startTimer = this.startTimer.bind(this);
-        this.pauseTimer = this.pauseTimer.bind(this);
     }
 
     fillProgress() {
-        const radius = 16;
+        const radius = 40;
         const circumference = 2 * radius * Math.PI;
 
         const circleElements = document.querySelectorAll("circle");
         circleElements.forEach((circle) => {
-            circle.setAttribute("stroke-dasharray", circumference + "em");
-            circle.setAttribute("r", radius + "em");
+            circle.setAttribute("stroke-dasharray", circumference);
+            circle.setAttribute("r", radius);
         });
 
         if(this.state.onBreak) {
@@ -92,7 +91,7 @@ export default class Timer extends React.Component {
             }
 
             if(elapsed<=initialDuration) {
-                const offset = -(circumference / initialDuration) * elapsed + "em";
+                const offset = -(circumference / initialDuration).toPrecision(10) * elapsed;
                 document.querySelector(".radial-progress-cover").setAttribute("stroke-dashoffset", offset);
                 elapsed++;
                 that.setState({
@@ -130,9 +129,9 @@ export default class Timer extends React.Component {
     }
 
     startTimer() {
+        let timerButton = document.querySelector("#timer-button");
+        let timerButtonIcon = document.querySelector("#timer-button-icon");
         if(!this.state.running) {
-            let timerButton = document.querySelector("#timer-button");
-            let timerButtonIcon = document.querySelector("#timer-button-icon");
             timerButton.className = "btn btn-lg btn-danger";
             timerButtonIcon.className = "fa fa-pause";
             this.setState({
@@ -143,8 +142,6 @@ export default class Timer extends React.Component {
                 this.renderTimerText();
             });
         } else if(!this.state.paused) {
-            let timerButton = document.querySelector("#timer-button");
-            let timerButtonIcon = document.querySelector("#timer-button-icon");
             timerButton.className = "btn btn-lg btn-success";
             timerButtonIcon.className = "fa fa-play";
             const remaining = this.state.remaining;
@@ -159,36 +156,22 @@ export default class Timer extends React.Component {
         }
     }
 
-    pauseTimer() {
-        if(!this.state.paused) {
-            const remaining = this.state.remaining;
-            this.setState({
-                duration: remaining,
-                running: false,
-                paused: true
-            }, () => {
-                clearTimeout(this.state.timeoutRadial);
-                clearTimeout(this.state.timeoutText);
-            })
-        }
-    }
-
     render() {
 
-        const svgSection = "40em";
-        const cx = (parseInt(svgSection)/2)+"em";
-        const cy = (parseInt(svgSection)/2)+"em";
+        const r = 40;
+        const cx = 50;
+        const cy = 50;
 
         return (
-            <div className="svg radial-progress">
-                <svg height={svgSection} width={svgSection}>
-                    <g transform="translate(0, 585) rotate(270)">
-                        <circle className="radial-progress-border" r="16em" cx={cx} cy={cy}></circle>
-                        <circle className="radial-progress-background" r="16em" cx={cx} cy={cy}></circle>
-                        <circle className="radial-progress-cover" r="16em" cx={cx} cy={cy}></circle>
-                        <circle className="radial-progress-center" r="16em" cx={cx} cy={cy}></circle>
+            <div id="timer" className="svg radial-progress">
+                <svg viewBox="0 0 100 100">
+                    <g transform="rotate(270 50 50)">
+                        <circle className="radial-progress-border" r={r} cx={cx} cy={cy}></circle>
+                        <circle className="radial-progress-background" r={r} cx={cx} cy={cy}></circle>
+                        <circle className="radial-progress-cover" r={r} cx={cx} cy={cy}></circle>
+                        <circle className="radial-progress-center" r={r} cx={cx} cy={cy}></circle>
                     </g>
-                    <text x="50%" y="50%" textAnchor="middle" fontSize="4em">oh hi.</text>
+                    <text x="50" y="51" textAnchor="middle" fontSize="8">oh hi.</text>
                 </svg>
             </div>
         );
