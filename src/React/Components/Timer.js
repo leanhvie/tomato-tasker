@@ -39,8 +39,8 @@ export default class Timer extends React.Component {
 
         const circleElements = document.querySelectorAll("circle");
         circleElements.forEach((circle) => {
-            circle.setAttribute("stroke-dasharray", circumference);
-            circle.setAttribute("r", radius);
+            circle.setAttribute("stroke-dasharray", circumference.toString());
+            circle.setAttribute("r", radius.toString());
         });
 
         if(this.state.onBreak) {

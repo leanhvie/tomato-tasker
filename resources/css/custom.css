@@ -21,13 +21,17 @@ html, body, #app, #display {
 }
 
 #sidebar {
-    border-right: 1px solid #efdecd;
-    background-color: bisque;
+    border-right: 1px solid #2c3e50;
+    background-color: #375a7f;
     transition: all 0.5s ease-in-out;
 }
 
 .showSidebar {
     flex-grow: 1;
+}
+
+.hideContent {
+    flex-shrink: 0;
 }
 
 #content {
@@ -50,7 +54,7 @@ html, body, #app, #display {
 }
 
 svg {
-    width: 48em;
+    width: 39em;
 }
 
 circle {
@@ -61,6 +65,7 @@ circle {
 
 .radial-progress-border {
     stroke-width: 10;
+    transition: stroke 0.5s ease-in-out;
 }
 
 .radial-progress-cover {
