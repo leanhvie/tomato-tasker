@@ -2,59 +2,85 @@ html, body, #app, #display {
     height: 100%
 }
 
+section[id]:not(:target) {
+    display: none !important;
+}
+
+section {
+    height: 100%;
+    align-self: center;
+}
+
 #display {
     display: flex;
     flex-direction: column;
 }
 
-.navbar {
-    z-index: 9001;
-    padding-left: 25px;
-    margin-bottom: 0;
-    border-bottom: 1px solid rgb(15, 120, 100);
-}
+/*.navbar {*/
+    /*padding-left: 25px;*/
+    /*margin: 0;*/
+    /*border-bottom: 1px solid rgb(15, 120, 100);*/
+/*}*/
 
-#main {
-    flex-grow: 1;
+#navbar {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    overflow: hidden;
+    background-color: #18bc9c;
+    border-bottom: 1px solid rgb(15, 120, 100);
+
 }
 
-#sidebar {
-    border-right: 1px solid #2c3e50;
-    background-color: #375a7f;
-    transition: all 0.5s ease-in-out;
+.nav {
+
 }
 
-.showSidebar {
-    flex-grow: 1;
+.nav a {
+    font-size: 24px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
 
-.hideContent {
-    flex-shrink: 0;
+.nav a:hover {
+    cursor: pointer;
 }
 
 #content {
     margin-bottom: 21px;
-    flex-grow: 2;
     display: flex;
     flex-direction: column;
+    flex: 1 0 auto;
 }
 
-/*TIMER*/
-
-#timer-section {
-    align-self: center;
-    display: flex;
-    flex-direction: column;
-}
+/***********************/
+/******** TIMER ********/
+/***********************/
 
 #timer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer-component {
+    display: flex;
+    flex-direction: column;
+}
+
+#timer-radial {
     align-self: center;
 }
 
 svg {
-    width: 39em;
+    width: 32em;
 }
 
 circle {
@@ -82,45 +108,117 @@ circle {
     transition: all 0.5s ease-in-out;
 }
 
+/***********************/
+/******** TASKS ********/
+/***********************/
+
+#tasks {
+    display: flex;
+    justify-content: center;
+}
+
+#no-tasks {
+    margin: 90px;
+    align-self: center;
+}
+
+#tasks-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: flex-start;
+}
+
+.task {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: auto;
+    width: 300px;
+    max-width: 300px;
+    margin: 15px;
+    box-shadow: 2px 2px 5px 0 #888888;
+    word-break: break-all;
+    transition: all 0.5s ease-in-out;
+}
+
+.task-header {
+    font-size: 26px;
+    background-color: bisque;
+    padding: 15px;
+    border-radius: 3px 3px 0 0;
+}
+
+.task-body {
+    background-color: antiquewhite;
+    padding: 15px;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-left: 1px solid;
+    border-color: bisque;
+    border-radius: 0 0 3px 3px;
+}
+
+#add-task-btn {
+    font-size: 16px;
+}
+
 #footer {
     height: 8%;
     border-top: 1px solid #d3d3d3;
     background-color: #dededf;
+    order: 3;
 }
 
 #footer > .container {
     padding: 15px;
 }
 
-@media (max-width: 1200px) {
+#loading-spinner {
+    margin: 90px;
+    align-self: center;
+}
 
-    .showSidebar {
-        flex-grow: 8;
-    }
+.margin-top {
+    margin-top: 36px;
+}
 
+.header-hr {
+    width: 100%;
+}
+
+hr {
+    margin: 0;
+}
+
+.alert {
+    padding: 15px 35px;
+    margin-top: 21px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 @media (max-width: 1000px) {
+
+    #timer {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
 
     svg {
         width: 30em;
     }
 
-    .showSidebar {
-        flex-grow: 6;
-    }
-
     #timer-button {
-        width: 20em;
+        width: 16em;
     }
 
 }
 
 @media (max-width: 700px) {
-
-    .showSidebar {
-        flex-grow: 4;
-    }
 
     svg {
         width: 16em;
@@ -132,176 +230,35 @@ circle {
 
 }
 
-.move-from-top {
-    -webkit-animation: moveFromTop 0.5s ease-out;
-    -moz-animation: moveFromTop 0.5s ease-out;
-    -ms-animation: moveFromTop 0.5s ease-out;
-    -o-animation: moveFromTop 0.5s ease-out;
-    animation: moveFromTop 0.5s ease-out;
-    animation-fill-mode: forwards;
-}
+@media (max-width: 410px) {
 
-.move-to-bottom {
-    -webkit-animation: moveToBottom 0.5s ease-in;
-    -moz-animation: moveToBottom 0.5s ease-in;
-    -ms-animation: moveToBottom 0.5s ease-in;
-    -o-animation: moveToBottom 0.5s ease-in;
-    animation: moveToBottom 0.5s ease-in;
-    animation-fill-mode: forwards;
-}
+    .nav a {
+        font-size: 15px;
+    }
 
-.move-from-bottom {
-    -webkit-animation: moveFromBottom 0.5s ease-out;
-    -moz-animation: moveFromBottom 0.5s ease-out;
-    -ms-animation: moveFromBottom 0.5s ease-out;
-    -o-animation: moveFromBottom 0.5s ease-out;
-    animation: moveFromBottom 0.5s ease-out;
-    animation-fill-mode: forwards;
-}
+    svg {
+        width: 16em;
+    }
 
-.move-to-top {
-    -webkit-animation: moveToTop 0.5s ease-in;
-    -moz-animation: moveToTop 0.5s ease-in;
-    -ms-animation: moveToTop 0.5s ease-in;
-    -o-animation: moveToTop 0.5s ease-in;
-    animation: moveToTop 0.5s ease-in;
-    animation-fill-mode: forwards;
-}
+    #timer-button {
+        width: 10.4em;
+        padding: 7px;
+    }
 
+    .task {
+        width: 200px;
+    }
 
+    .task-header {
+        font-size: 20px;
+    }
 
-@-webkit-keyframes moveFromTop {
-    from {
-        -webkit-transform: translateY(-110%);
-        transform: translateY(-110%);
+    .task-body {
+        font-size: 12px;
     }
-}
-@-moz-keyframes moveFromTop {
-    from {
-        -moz-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@-ms-keyframes moveFromTop {
-    from {
-        -ms-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@-o-keyframes moveFromTop {
-    from {
-        -o-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@keyframes moveFromTop {
-    from {
-        transform: translateY(-110%);
-    }
-}
 
+    #add-task-btn {
+        font-size: 11px;
+    }
 
-
-@-webkit-keyframes moveToBottom {
-    from {}
-    to {
-        -webkit-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-moz-keyframes moveToBottom {
-    from {}
-    to {
-        -moz-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-ms-keyframes moveToBottom {
-    from {}
-    to {
-        -ms-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-o-keyframes moveToBottom {
-    from {}
-    to {
-        -o-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@keyframes moveToBottom {
-    from {}
-    to {
-        transform: translateY(110%);
-    }
-}
-
-
-
-@-webkit-keyframes moveFromBottom {
-    from {
-        -webkit-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-moz-keyframes moveFromBottom {
-    from {
-        -moz-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-ms-keyframes moveFromBottom {
-    from {
-        -ms-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@-o-keyframes moveFromBottom {
-    from {
-        -o-transform: translateY(110%);
-        transform: translateY(110%);
-    }
-}
-@keyframes moveFromBottom {
-    from {
-        transform: translateY(110%);
-    }
-}
-
-
-
-@-webkit-keyframes moveToTop {
-    from {}
-    to {
-        -webkit-transform: translateY(-100%);
-        transform: translateY(-110%);
-    }
-}
-@-moz-keyframes moveToTop {
-    from {}
-    to {
-        -moz-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@-ms-keyframes moveToTop {
-    from {}
-    to {
-        -ms-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@-o-keyframes moveToTop {
-    from {}
-    to {
-        -o-transform: translateY(-110%);
-        transform: translateY(-110%);
-    }
-}
-@keyframes moveToTop {
-    from {}
-    to {
-        transform: translateY(-110%);
-    }
 }
