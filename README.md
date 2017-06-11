@@ -1,5 +1,5 @@
 # tomato-tasker
-Repository for a pomodoro web application
+Repository for a pomodoro timer web application
 
 ## Setup
 
@@ -13,6 +13,8 @@ cd tomato-tasker
 npm install
 npm run build
 ```
+`npm install` command will download all the needed dependencies for runnning the application. The process may take a while.
+
 From here there are two ways to run the application:
 * Run the application with webpack-dev-server by typing `npm run dev` into the command line, where changes to the code will affect the running application.
 * Run the application by simply opening the `index.html` file.
