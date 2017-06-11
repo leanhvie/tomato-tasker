@@ -5,11 +5,13 @@ import Footer from "./Layout/Footer";
 
 import ConnectionStore from "../Flux/Stores/ConnectionStore";
 
+// Top level react component, the location where the application checks connectivity to the internet
 export default class App extends React.Component {
 
     constructor() {
         super();
         this.state = {
+
             isOnline: ConnectionStore.getIsConnected()
         }
     }

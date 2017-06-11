@@ -10,6 +10,7 @@ export default class TasksList extends React.Component {
         super()
     }
 
+    // Creates and array of React components that will be rendered one after another in the render() function
     renderTasks() {
         const tasks = this.props.tasks;
         let taskComponents = [];

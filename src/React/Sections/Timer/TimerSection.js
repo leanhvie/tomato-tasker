@@ -8,11 +8,13 @@ import TasksStore from "../../../Flux/Stores/TasksStore";
 
 import * as EmptyCheck from "../../../Utils/EmptyCheck";
 
+// Top level React component for handling timer-related views
 export default class TimerPage extends React.Component {
 
     constructor() {
         super();
         this.state = {
+            // The timer will follow the time given in the current/chosen task
             currentTask: TasksStore.getCurrentTask()
         }
     }
@@ -33,6 +35,7 @@ export default class TimerPage extends React.Component {
                 {
                     EmptyCheck.isObjectEmpty(this.state.currentTask) ? null :
                     (
+                        // Renders task information next to the timer
                         <div>
                             <div className="task">
                                 <div id="timer-task-info">

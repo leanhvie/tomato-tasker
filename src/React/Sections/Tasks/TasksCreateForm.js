@@ -10,6 +10,7 @@ import * as TasksActions from "../../../Flux/Actions/TasksActions";
 import * as EmptyCheck from "../../../Utils/EmptyCheck";
 import * as Validation from "../../../Utils/Validation";
 
+// React component for creating a task. The form itself is a modal popup.
 export default class TasksCreateForm extends React.Component {
 
     constructor() {
@@ -44,6 +45,8 @@ export default class TasksCreateForm extends React.Component {
 
     setErrorMessagesState = (errorMessages) => this.setState({errorMessages: errorMessages});
 
+    /* Validates input from the form upon attempting to submit the form. Validation states change the input style of the
+     form to a red color, notifying the user which input field needs to be changed */
     validateInputs() {
         let errorMessages = [];
         if(!Validation.validateNotEmpty(this.state.title)) {
@@ -84,6 +87,8 @@ export default class TasksCreateForm extends React.Component {
     submit(event) {
         event.preventDefault();
         let errorMessages = this.validateInputs();
+        /* If the validation returned no error messages, the form submission can continue, else they will be rendered on
+        top of the form */
         if(EmptyCheck.isArrayEmpty(errorMessages)) {
             const title = this.state.title;
             const description = this.state.description;
@@ -93,6 +98,7 @@ export default class TasksCreateForm extends React.Component {
 
             TasksActions.createTask(title, description, workTime, breakTime, numberOfCycles);
 
+            // The following code block redirects the user the the tasks list page
             if(location.hash == "#tasks") {
                 this.closeModal();
             } else {
@@ -120,9 +126,10 @@ export default class TasksCreateForm extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
                         {
+                            // Here we check whether the user has created any error messages when filling the form
                             EmptyCheck.isArrayEmpty(this.state.errorMessages) ?
-                                null :
-                                (<FormErrorMessageAlerts errorMessages={this.state.errorMessages}/>)
+                            null :
+                            (<FormErrorMessageAlerts errorMessages={this.state.errorMessages}/>)
                         }
                         <Form>
                             <FormGroup controlId="formTitle" validationState={this.state.titleValidationState}>

@@ -3,6 +3,7 @@ import dispatcher from "../dispatcher";
 
 import * as firebase from "firebase";
 
+// Store for storing the state of the tasks in the application
 class TasksStore extends EventEmitter {
     constructor() {
         super();

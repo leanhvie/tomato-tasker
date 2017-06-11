@@ -2,6 +2,7 @@ import React from "react";
 
 import { Alert } from "react-bootstrap";
 
+// React component for banner notifying that the client is not online
 export default class OfflineAlert extends React.Component {
 
     constructor() {

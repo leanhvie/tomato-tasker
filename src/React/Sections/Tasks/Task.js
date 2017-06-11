@@ -7,6 +7,7 @@ import TaskUpdateForm from "./TaskUpdateForm";
 import * as TaskActions from "../../../Flux/Actions/TasksActions";
 import * as HistoryActions from "../../../Flux/Actions/HistoryActions";
 
+// React component for rendering each and individual tasks. Next to its title is a button toolbar where the user can add the task to the timer, update the task or delete it
 export default class Task extends React.Component {
 
     constructor() {

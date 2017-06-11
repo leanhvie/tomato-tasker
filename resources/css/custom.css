@@ -1,49 +1,42 @@
-i:before {
-    font-family: fontAwesome !important;
-}
-
 html, body, #app, #display {
     height: 100%
 }
 
-section[id]:not(:target) {
-    display: none !important;
-}
-
-section {
-    height: 100%;
-    align-self: center;
-}
-
 #display {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
-/*.navbar {*/
-    /*padding-left: 25px;*/
-    /*margin: 0;*/
-    /*border-bottom: 1px solid rgb(15, 120, 100);*/
-/*}*/
+/************************/
+/******** NAVBAR ********/
+/************************/
 
 #navbar {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     list-style-type: none;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
     margin: 0;
     padding: 5px 0 0 0;
     overflow: hidden;
     background-color: #18bc9c;
     border-bottom: 1px solid rgb(15, 120, 100);
-
 }
 
-.nav {
-
-}
-
-.nav a {
+nav a {
     font-size: 24px;
     display: block;
     color: white;
@@ -52,15 +45,38 @@ section {
     text-decoration: none;
 }
 
-.nav a:hover {
+nav a:hover {
+    color: rgb(15, 120, 100);
+    text-decoration: none;
     cursor: pointer;
 }
 
+/*************************/
+/******** CONTENT ********/
+/*************************/
+
 #content {
     margin-bottom: 21px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
     flex: 1 0 auto;
+}
+
+section[id]:not(:target) {
+    display: none !important;
+}
+
+section {
+    height: 100%;
+    -ms-flex-item-align: center;
+    align-self: center;
 }
 
 /***********************/
@@ -68,18 +84,33 @@ section {
 /***********************/
 
 #timer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 #timer-component {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
 }
 
 #timer-radial {
+    -ms-flex-item-align: center;
     align-self: center;
 }
 
@@ -90,11 +121,13 @@ svg {
 circle {
     stroke-width: 10;
     fill: transparent;
+    -webkit-transition: stroke-dashoffset 0.5s ease-in-out;
     transition: stroke-dashoffset 0.5s ease-in-out;
 }
 
 .radial-progress-border {
     stroke-width: 10;
+    -webkit-transition: stroke 0.5s ease-in-out;
     transition: stroke 0.5s ease-in-out;
 }
 
@@ -107,8 +140,10 @@ circle {
 }
 
 #timer-button {
+    -ms-flex-item-align: center;
     align-self: center;
     width: 16em;
+    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 
@@ -117,33 +152,55 @@ circle {
 /***********************/
 
 #tasks {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
 #no-tasks {
     margin: 90px;
+    -ms-flex-item-align: center;
     align-self: center;
 }
 
 #tasks-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
+    -ms-flex-line-pack: stretch;
     align-content: stretch;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
 }
 
 .task {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
     order: 0;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
     flex: 0 1 auto;
+    -ms-flex-item-align: auto;
     align-self: auto;
     width: 300px;
     max-width: 300px;
     margin: 15px;
+    -webkit-box-shadow: 2px 2px 5px 0 #888888;
     box-shadow: 2px 2px 5px 0 #888888;
     word-break: break-all;
+    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
 }
 
@@ -168,19 +225,38 @@ circle {
     font-size: 16px;
 }
 
+/************************/
+/******** FOOTER ********/
+/************************/
+
 #footer {
-    height: 8%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    height: 7%;
     border-top: 1px solid #d3d3d3;
     background-color: #dededf;
-    order: 3;
 }
 
-#footer > .container {
-    padding: 15px;
+/***********************/
+/******** OTHER ********/
+/***********************/
+
+#github-link {
+    color: rgb(15, 120, 100);
 }
 
 #loading-spinner {
     margin: 90px;
+    -ms-flex-item-align: center;
     align-self: center;
 }
 
@@ -192,10 +268,6 @@ circle {
     width: 100%;
 }
 
-hr {
-    margin: 0;
-}
-
 .alert {
     padding: 15px 35px;
     margin-top: 21px;
@@ -203,12 +275,25 @@ hr {
     border-radius: 4px;
 }
 
+/****************************/
+/******** RESPONSIVE ********/
+/****************************/
+
 @media (max-width: 1000px) {
 
     #timer {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
         flex-direction: column-reverse;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
         justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
     }
 
@@ -234,9 +319,9 @@ hr {
 
 }
 
-@media (max-width: 410px) {
+@media (max-width: 450px) {
 
-    .nav a {
+    nav a {
         font-size: 15px;
     }
 
@@ -263,6 +348,10 @@ hr {
 
     #add-task-btn {
         font-size: 11px;
+    }
+
+    #footer > .container {
+        padding: 0;
     }
 
 }

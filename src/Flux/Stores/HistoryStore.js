@@ -2,6 +2,7 @@ import { EventEmitter } from "events";
 import dispatcher from "../dispatcher";
 import createHistory from 'history/createBrowserHistory'
 
+// Store for storing the state of the application browser history
 class HistoryStore extends EventEmitter {
     constructor() {
         super();

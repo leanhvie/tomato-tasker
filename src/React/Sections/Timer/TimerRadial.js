@@ -38,6 +38,8 @@ export default class TimerRadial extends React.Component {
     }
 
     componentWillReceiveProps(props) {
+        clearTimeout(this.state.timeoutRadial);
+        clearTimeout(this.state.timeoutText);
         if(!EmptyCheck.isObjectEmpty(props.currentTask)) {
             let workTime = this.stringToSeconds(props.currentTask.workTime);
             let breakTime = this.stringToSeconds(props.currentTask.breakTime);
@@ -57,13 +59,28 @@ export default class TimerRadial extends React.Component {
 
                 running: false,
                 paused: false,
+            });
+        } else {
+            this.setState({
+                initialDuration: 1500,
 
-                timeoutRadial: 0,
-                timeoutText: 0
+                duration: 1500,
+                elapsed: 0,
+                remaining: 1500,
+
+                breakDuration: 600,
+
+                numberOfCycles: 1,
+
+                onBreak: false,
+
+                running: false,
+                paused: false,
             });
         }
     }
 
+    /* Converts time in hh:mm:ss format to seconds */
     stringToSeconds = (input) => {
         if(!EmptyCheck.isUndefinedOrNull(input)) {
             let array = input.split(":");
@@ -71,10 +88,13 @@ export default class TimerRadial extends React.Component {
         }
     };
 
+    /* Fills progress ring of the timer radial */
     fillProgress() {
+
         const radius = 35;
         const circumference = 2 * radius * Math.PI;
 
+        // Add stroke-dasharray attribute to create a ring-like impression with stacked svg circles
         const circleElements = document.querySelectorAll("circle");
         circleElements.forEach((circle) => {
             circle.setAttribute("stroke-dasharray", circumference.toString());
@@ -82,9 +102,11 @@ export default class TimerRadial extends React.Component {
         });
 
         if(this.state.onBreak) {
+            // Changes color of timer radial to green during break time
             document.querySelector(".radial-progress-border").setAttribute("stroke", "#0f7864");
             document.querySelector(".radial-progress-background").setAttribute("stroke", "#18bc9c");
         } else {
+            // Changes color of timer radial to red during work time
             document.querySelector(".radial-progress-border").setAttribute("stroke", "#e53c37");
             document.querySelector(".radial-progress-background").setAttribute("stroke", "#eb6864");
         }
@@ -102,7 +124,10 @@ export default class TimerRadial extends React.Component {
                 let dingSound = new Audio("../../../resources/audio/ding.wav");
                 dingSound.play();
                 clearTimeout(that.state.timeoutRadial);
+                /* If the end of the timer was during break time, we check whether we still have more cycles left, else
+                   it was during work time and we proceed with timing the break time */
                 if(that.state.onBreak) {
+                    // Checks how many cycles left until the end of task session
                     if(that.state.numberOfCycles > 1) {
                         let workTime = that.stringToSeconds(that.props.currentTask.workTime);
                         let breakTime = that.stringToSeconds(that.props.currentTask.breakTime);
@@ -126,6 +151,7 @@ export default class TimerRadial extends React.Component {
                             timeoutRadial: 0,
                             timeoutText: 0
                         }, () => {
+                            // Repeat the progress
                             that.fillProgress();
                             that.renderTimerText();
                         });
@@ -161,12 +187,14 @@ export default class TimerRadial extends React.Component {
                         remaining: breakDuration,
                         onBreak: true,
                     }, () => {
+                        // Repeat the progress for break time
                         that.fillProgress();
                         that.renderTimerText();
                     });
                 }
             }
 
+            //If the full time hasn't elapsed yet, we add a portion relative to elapsed time to the ring of the radial timer
             if(elapsed<=initialDuration) {
                 const offset = -(circumference / initialDuration).toPrecision(21) * elapsed + "px";
                 document.querySelector(".radial-progress-cover").setAttribute("stroke-dashoffset", offset);
@@ -180,6 +208,7 @@ export default class TimerRadial extends React.Component {
 
     }
 
+    // Renders the time text inside the timer radial
     renderTimerText() {
         let timer = this.state.remaining;
         const that = this;
@@ -192,6 +221,7 @@ export default class TimerRadial extends React.Component {
                 clearTimeout(that.state.timeoutText);
             }
 
+            // String/Integer manipulation for rendering time text
             let minutes = parseInt(timer / 60, 10);
             let seconds = parseInt(timer % 60, 10);
 
@@ -209,6 +239,7 @@ export default class TimerRadial extends React.Component {
         let timerButton = document.querySelector("#timer-button");
         let timerButtonIcon = document.querySelector("#timer-button-icon");
         if(!this.state.running) {
+            // This code section unpauses the timer radial and changes the button to a pause button
             timerButton.className = "btn btn-lg btn-danger";
             timerButtonIcon.className = "fa fa-pause";
             this.setState({
@@ -219,6 +250,7 @@ export default class TimerRadial extends React.Component {
                 this.renderTimerText();
             });
         } else if(!this.state.paused) {
+            // This code section pauses the timer radial and changes the button to a play button
             timerButton.className = "btn btn-lg btn-success";
             timerButtonIcon.className = "fa fa-play";
             const remaining = this.state.remaining;

@@ -1,3 +1,5 @@
+// JS file related to tasks CRUD functions
+
 import dispatcher from "../dispatcher";
 
 export function loadTasks() {

@@ -1,6 +1,7 @@
 import { EventEmitter } from "events";
 import dispatcher from "../dispatcher";
 
+// Store for storing the state of the application connectivity
 class ConnectionStore extends EventEmitter {
     constructor() {
         super();

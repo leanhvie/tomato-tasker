@@ -1,3 +1,5 @@
+// JS file with functions for checking empty arrays, objects and undefined or null
+
 export function isObjectEmpty(object) {
     return Object.keys(object).length === 0 && object.constructor === Object;
 }

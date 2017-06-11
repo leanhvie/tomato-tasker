@@ -1,3 +1,5 @@
+// JS file with actions relatied to application browsing history
+
 import dispatcher from "../dispatcher";
 
 export function updateCurrentPage(currentPage) {
