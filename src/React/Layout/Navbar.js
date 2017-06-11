@@ -23,10 +23,10 @@ export default class Navbar extends React.Component {
             );
         } else {
             return (
-                <ul id="navbar">
-                    <li className="nav"><a href="#home" onClick={() => this.updateCurrentPage("#home")}>Home</a></li>
-                    <li className="nav"><a href="#timer" onClick={() => this.updateCurrentPage("#timer")}>Timer</a></li>
-                </ul>
+                <nav id="navbar">
+                    <a href="#home" onClick={() => this.updateCurrentPage("#home")}>Home</a>
+                    <a href="#timer" onClick={() => this.updateCurrentPage("#timer")}>Timer</a>
+                </nav>
             );
         }
     }
