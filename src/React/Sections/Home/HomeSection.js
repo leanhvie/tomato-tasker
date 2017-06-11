@@ -10,7 +10,7 @@ export default class HomeSection extends React.Component {
     render() {
         return (
             <section id="home" className="container">
-                <center><h3>So what can this web application do?</h3></center>
+                <center><h3>So what can this thing do?</h3></center>
                 <div id="home-paragraph-section">
                     <article className="home-paragraph">
                         <i className="fa fa-clock-o fa-4x" aria-hidden="true"></i>
@@ -27,7 +27,7 @@ export default class HomeSection extends React.Component {
                         <p className="home-paragraph-text">
                             Tomato Tasker can be used without connection to the internet.</p>
                         <p>
-                            However, not that it will be ultimately relegated to being only a simple
+                            However, note that it will be ultimately relegated to being only a simple
                             pomodoro timer with the traditional 25 minutes work and 5 minutes break time.
                         </p>
                     </article>
@@ -45,7 +45,7 @@ export default class HomeSection extends React.Component {
                             added, you will be redirected to a page with a list of tasks.
                         </p>
                         <p>
-                            Each task has a buttontoolbar next to its title where you can assign the task to the timer, edit the task or delete it.
+                            Each task has a button toolbar next to its title where you can assign the task to the timer, edit the task or delete it.
                         </p>
                     </article>
                 </div>

@@ -160,7 +160,7 @@ export default class TasksUpdateForm extends React.Component {
                                     </InputGroup.Addon>
                                     <FormControl
                                         type="text"
-                                        placeholder="hh:mm"
+                                        placeholder="hh:mm:ss"
                                         value={this.state.workTime}
                                         onChange={this.setWorkTimeState}
                                     />
@@ -174,7 +174,7 @@ export default class TasksUpdateForm extends React.Component {
                                     </InputGroup.Addon>
                                     <FormControl
                                         type="text"
-                                        placeholder="hh:mm"
+                                        placeholder="hh:mm:ss"
                                         value={this.state.breakTime}
                                         onChange={this.setBreakTimeState}
                                     />
@@ -188,7 +188,6 @@ export default class TasksUpdateForm extends React.Component {
                                     </InputGroup.Addon>
                                     <FormControl
                                         type="text"
-                                        placeholder="hh:mm"
                                         value={this.state.numberOfCycles}
                                         onChange={this.setNumberOfCyclesState}
                                     />
