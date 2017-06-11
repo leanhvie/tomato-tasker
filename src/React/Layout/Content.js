@@ -36,7 +36,7 @@ export default class Content extends React.Component {
             case "#home": return "Oh hi there.";
             case "#timer": return "Timer";
             case "#tasks": return "Tasks";
-            default: return "oh hi.";
+            default: return "Oh hi there.";
         }
     };
 
