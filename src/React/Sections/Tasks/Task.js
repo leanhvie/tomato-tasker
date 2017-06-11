@@ -2,6 +2,8 @@ import React from "react";
 
 import { Button, ButtonToolbar } from "react-bootstrap";
 
+import TaskUpdateForm from "./TaskUpdateForm";
+
 import * as TaskActions from "../../../Flux/Actions/TasksActions";
 import * as HistoryActions from "../../../Flux/Actions/HistoryActions";
 
@@ -33,6 +35,7 @@ export default class Task extends React.Component {
                             <Button bsSize="xsmall" bsStyle="warning" onClick={this.selectTask}>
                                 <i className="fa fa-clock-o" aria-hidden="true"></i>
                             </Button>
+                            <TaskUpdateForm currentTask={this.props.task}/>
                             <Button bsSize="xsmall" bsStyle="danger" onClick={this.removeTask}>
                                 <i className="fa fa-trash-o" aria-hidden="true"></i>
                             </Button>

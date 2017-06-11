@@ -1,3 +1,7 @@
+i:before {
+    font-family: fontAwesome !important;
+}
+
 html, body, #app, #display {
     height: 100%
 }

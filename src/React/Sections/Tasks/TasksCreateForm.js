@@ -1,11 +1,11 @@
 import React from "react";
 
-import * as firebase from "firebase";
 import { Button, ControlLabel, Form, FormControl, FormGroup, InputGroup, Modal } from "react-bootstrap";
 
 import FormErrorMessageAlerts from "../../Other/FormErrorMessageAlerts";
 
 import * as HistoryActions from "../../../Flux/Actions/HistoryActions";
+import * as TasksActions from "../../../Flux/Actions/TasksActions";
 
 import * as EmptyCheck from "../../../Utils/EmptyCheck";
 import * as Validation from "../../../Utils/Validation";
@@ -91,14 +91,8 @@ export default class TasksCreateForm extends React.Component {
             const breakTime = this.state.breakTime;
             const numberOfCycles = this.state.numberOfCycles;
 
-            const tasksRef = firebase.database().ref("tasks");
-            tasksRef.push({
-                title: title,
-                description: description,
-                workTime: workTime,
-                breakTime: breakTime,
-                numberOfCycles: numberOfCycles
-            });
+            TasksActions.createTask(title, description, workTime, breakTime, numberOfCycles);
+
             if(location.hash == "#tasks") {
                 this.closeModal();
             } else {

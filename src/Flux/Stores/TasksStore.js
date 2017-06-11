@@ -20,6 +20,31 @@ class TasksStore extends EventEmitter {
         this.isFetchingTasks = false;
     }
 
+    createTask(title, description, workTime, breakTime, numberOfCycles) {
+        const tasksRef = firebase.database().ref("tasks");
+        tasksRef.push({
+            title: title,
+            description: description,
+            workTime: workTime,
+            breakTime: breakTime,
+            numberOfCycles: numberOfCycles
+
+        });
+        this.emit("change");
+    }
+
+    updateTask(key, title, description, workTime, breakTime, numberOfCycles) {
+        const taskToUpdateRef = firebase.database().ref("tasks/"+key);
+        taskToUpdateRef.update({
+            title: title,
+            description: description,
+            workTime: workTime,
+            breakTime: breakTime,
+            numberOfCycles: numberOfCycles
+        });
+        this.emit("change");
+    }
+
     removeTask(currentTask) {
         firebase.database().ref("tasks/"+currentTask.key).remove();
         if(currentTask.key == this.currentTask.key) {
@@ -50,9 +75,15 @@ class TasksStore extends EventEmitter {
             case "LOAD_TASKS":
                 this.loadTasks();
                 break;
+            case "CREATE_TASK":
+                this.createTask(action.title, action.description, action.workTime, action.breakTime, action.numberOfCycles);
+                break;
             case "SELECT_TASK":
                 this.currentTask = action.currentTask;
                 this.emit("change");
+                break;
+            case "UPDATE_TASK":
+                this.updateTask(action.key, action.title, action.description, action.workTime, action.breakTime, action.numberOfCycles);
                 break;
             case "REMOVE_TASK":
                 this.removeTask(action.currentTask);
