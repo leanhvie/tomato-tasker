@@ -35,7 +35,7 @@ export default class HomeSection extends React.Component {
                         <i class="fa fa-mobile fa-4x" aria-hidden="true"></i>
                         <p className="home-paragraph-text">
                             This application is responsive. You can use the timer as well as setting up your tasks right
-                            from the comfort of your mobile device
+                            from the comfort of your mobile device.
                         </p>
                     </article>
                     <article className="home-paragraph">
