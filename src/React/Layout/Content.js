@@ -33,7 +33,7 @@ export default class Content extends React.Component {
 
     renderHeaderText = () => {
         switch(this.state.currentPage) {
-            case "#home": return "oh hi.";
+            case "#home": return "Oh hi there.";
             case "#timer": return "Timer";
             case "#tasks": return "Tasks";
             default: return "oh hi.";

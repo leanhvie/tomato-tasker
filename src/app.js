@@ -17,6 +17,8 @@ firebase.initializeApp(config);
 
 const app = document.getElementById("app");
 
+location.replace("#home");
+
 ReactDOM.render(
     <App/>,
 app);

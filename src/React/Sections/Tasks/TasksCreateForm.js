@@ -136,7 +136,7 @@ export default class TasksCreateForm extends React.Component {
                                 <ControlLabel>Title</ControlLabel>
                                 <InputGroup>
                                     <InputGroup.Addon>
-                                        <i className="fa fa-tasks fa" aria-hidden="true"></i>
+                                        <i class="fa fa-tag" aria-hidden="true"></i>
                                     </InputGroup.Addon>
                                     <FormControl
                                         type="text"
